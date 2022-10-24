@@ -1,0 +1,32 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package jpa;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+/**
+ *
+ * @author LABIV-PC10
+ */
+public class EntityManagerUtil {
+    
+    static EntityManagerFactory emf = null;
+    
+    public static EntityManager getEntityManeger(){
+        if(emf == null){
+            try{
+                emf = Persistence.createEntityManagerFactory("Venda_JPAPU");
+            }
+            catch(Exception e){
+                
+            } 
+        }
+       
+        return emf.createEntityManager();
+    }
+}
